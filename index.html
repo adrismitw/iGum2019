@@ -1,0 +1,68 @@
+<html>
+<head>
+
+<link href="Hi.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+	var test;
+$(document).ready(function(){
+    $.get("http://12f31611.ngrok.io/products", function(data, status){
+    	var test ='';
+    	$.each(data,function(index,value){
+    		console.log(value.name);
+		    test += '<div class ="product">';
+		    test += '<div class ="product-image-container">';
+		    test += '<img class ="product-image" src="C:/Users/asus/Desktop/Hi/'+index+'.jpg"></div>';
+		    test += '<div class="product-title">'+value.name+'</div>';
+		    test += '<div class="product-price">'+value.price+' $</div>';
+		    test += '<div class="product-add"><button class="product-button">Add to cart</button></div>';
+		    test += '</div>';
+		});
+    	$(".right-side").prepend(test);
+    });
+});
+</script>
+</head>
+
+<body>
+	<div class="nav-bar">
+		<a href="index.html" class="left">iGum</a>
+    <a href="cart.html" class="right">Cart</a>
+	<a href="register.html" class="right">Register</a>
+    <a href="login.html" class="right">Login</a>
+	</div>
+	<div class = "main-body">
+		<div class="padhead">
+		<div class="header">
+			
+		</div>
+		</div>
+		<div class="search-bar">
+			<div class="row">
+				<button class = "bar-name" onclick="location.href='Index.html'">Home</button>
+				<button class = "bar-name" onclick="location.href='AboutUs.html'">About us</button>
+				<button class = "bar-name" onclick="location.href='ContactForm.html'">Contact us!</button>
+				<div class="right form">
+					<form>Search:   
+						<input type="" name="" value="Search">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="left-side" id="wrapper">
+			<div class="side-bar">
+				<a class="side-bar-item" href="">Products</a>
+				<a class="side-bar-item" href="">Flavors</a>
+				<a class="side-bar-item" href="">Customized</a>
+			</div>
+		</div>
+		<div class = "right-side"> 
+		</div>
+		
+	</div>
+	<div class="footer">
+			<p> Created by the iGum corporation (c) 2019</p>
+		</div>
+	
+</body>
+</html>
